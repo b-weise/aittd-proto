@@ -1,0 +1,6 @@
+.idea
+.nix-shell-inputs
+__pycache__
+shell.nix
+*.swp
+.venv
