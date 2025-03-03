@@ -3,7 +3,7 @@ from datetime import datetime
 from sqlalchemy import String, DateTime, Integer, Boolean, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import mapped_column, relationship
 
-from source.bw_libs.db_manager import DBManager
+from source.libs.db_manager import DBManager
 
 
 class EnumStatus(DBManager.Base):

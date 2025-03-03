@@ -6,9 +6,9 @@ from typing import Optional, Any
 
 from pandas import DataFrame
 
-from source.bw_libs.base_class import BaseConfig, VerboseLevel, base_method, BaseClass
-from source.bw_libs.db_manager import DBManager
-from source.bw_libs.helper import Helper
+from source.libs.base_class import BaseConfig, VerboseLevel, base_method, BaseClass
+from source.libs.db_manager import DBManager
+from source.libs.helper import Helper
 from source.db_tables import Params, Layers
 from source.types.logger_types import TermLoggerType
 from source.types.pipeline_params_types import LayerParams, PipelineParams, PipelineParamsCombinations

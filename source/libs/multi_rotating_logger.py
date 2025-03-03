@@ -8,7 +8,7 @@ from typing import Optional
 
 import dacite
 
-from source.bw_libs.helper import Helper
+from source.libs.helper import Helper
 
 
 @dataclass(frozen=True)

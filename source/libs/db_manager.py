@@ -8,8 +8,8 @@ from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.engine import URL
 from sqlalchemy.orm import declarative_base, sessionmaker, InstrumentedAttribute
 
-from source.bw_libs.base_class import BaseConfig, VerboseLevel, base_method, BaseClass
-from source.bw_libs.helper import Helper
+from source.libs.base_class import BaseConfig, VerboseLevel, base_method, BaseClass
+from source.libs.helper import Helper
 from source.types.logger_types import TermLoggerType
 
 

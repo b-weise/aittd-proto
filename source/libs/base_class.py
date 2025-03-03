@@ -6,7 +6,7 @@ from typing import Optional
 
 import dacite
 
-from source.bw_libs.multi_rotating_logger import MultiRotatingLogger
+from source.libs.multi_rotating_logger import MultiRotatingLogger
 from source.types.logger_types import TermLoggerType
 
 

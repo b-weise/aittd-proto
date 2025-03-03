@@ -1,6 +1,6 @@
 import keras
 
-from source.bw_libs.helper import Helper
+from source.libs.helper import Helper
 from source.types.pipeline_params_types import (LayerParamsCombinations,
                                                 PipelineParamsCombinations)
 
