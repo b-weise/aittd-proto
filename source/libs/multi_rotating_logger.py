@@ -40,9 +40,7 @@ class UnavailableNameException(Exception):
 
 
 class MultiRotatingLogger:
-    def __init__(self,
-                 configs: Sequence[dict],
-                 ):
+    def __init__(self, configs: Sequence[dict]):
         self.__configs: list[Config] = []
         if len(configs) > 0:
             self.__load_configs(configs)

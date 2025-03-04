@@ -29,7 +29,7 @@ class RecordsMismatchException(Exception):
 class DBManager(BaseClass):
     Base = declarative_base()
 
-    def __init__(self, config: Optional[dict] = None, default_verbose_level: Optional[VerboseLevel] = None):
+    def __init__(self, config: dict, default_verbose_level: Optional[VerboseLevel] = None):
         super().__init__(Config, config, default_verbose_level)
         self.__initialize_connection()
 

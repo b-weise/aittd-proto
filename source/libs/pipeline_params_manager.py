@@ -24,7 +24,7 @@ class Config(BaseConfig):
 
 class PipelineParamsManager(BaseClass):
 
-    def __init__(self, config: Optional[dict] = None, default_verbose_level: Optional[VerboseLevel] = None):
+    def __init__(self, config: dict, default_verbose_level: Optional[VerboseLevel] = None):
         super().__init__(Config, config, default_verbose_level)
 
         self.__db_manager = None
