@@ -43,5 +43,12 @@ class DataManager(BaseClass):
         return self.__dataframe
 
     @base_method
+    def get_length(self) -> int:
+        df_length = len(self.__dataframe)
+        if self._dynamic_verbose_level != VerboseLevel.NONE:
+            self._logger.debug(TermLoggerType.SHORT, f'Length: {df_length}')
+        return df_length
+
+    @base_method
     def destroy(self):
         super().destroy()
