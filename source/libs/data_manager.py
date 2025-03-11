@@ -19,6 +19,10 @@ class Config(BaseConfig):
     pandas_log_display_max_cols: Optional[int] = None
 
 
+class UndefinedDataFrame(Exception):
+    pass
+
+
 class UndefinedFieldName(Exception):
     pass
 
@@ -35,14 +39,19 @@ class DataManager(BaseClass):
                  default_verbose_level: Optional[VerboseLevel] = None):
         super().__init__(Config, config, default_verbose_level)
 
-        if dataframe is not None:
-            self.__dataframe = dataframe
+        self.__dataframe = dataframe
 
         if self._config.pandas_log_use_custom_settings:
             pandas.set_option('display.width', self._config.pandas_log_display_width)
             pandas.set_option('display.max_columns', self._config.pandas_log_display_max_cols)
 
         self._logger.info(TermLoggerType.ALL, f'{Helper.get_fully_qualified_name(self.__class__)} was initialized')
+
+    @base_method
+    def __check_dataframe(self):
+        if self.__dataframe is None:
+            raise UndefinedDataFrame(
+                'No DataFrame has been loaded. Define one using the "dataframe" parameter in the constructor, or provide a CSV file path via the "load_csv" method.')
 
     @base_method
     def load_csv(self, path: Path) -> DataFrame:
@@ -54,6 +63,7 @@ class DataManager(BaseClass):
 
     @base_method
     def get_length(self) -> int:
+        self.__check_dataframe()
         df_length = len(self.__dataframe)
         if self._dynamic_verbose_level != VerboseLevel.NONE:
             self._logger.debug(TermLoggerType.SHORT, f'Length: {df_length}')
@@ -67,6 +77,7 @@ class DataManager(BaseClass):
                     count_from_start: Optional[int] = None,
                     count_to_end: Optional[int] = None,
                     ) -> DataFrame:
+        self.__check_dataframe()
         if field_name is None:
             if self._config.default_field_name is None:
                 raise UndefinedFieldName(
